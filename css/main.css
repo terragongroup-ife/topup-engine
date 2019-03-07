@@ -1,10 +1,20 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,700,700i");
+@import url("https://fonts.googleapis.com/css?family=Oleo+Script:400,700");
+html, body {
+  min-height: 100%; }
+
+body {
+  position: relative; }
+
 body, ul {
   margin: 0;
   padding: 0; }
 
+a {
+  text-decoration: none; }
+
 .header {
-  background: #3e454c;
+  background: #0c1218;
   color: white;
   height: 59px; }
   .header .left {
@@ -16,28 +26,55 @@ body, ul {
     padding-top: 0px;
     padding-bottom: 0px; }
   .header .right {
+    color: white;
     float: right;
-    margin-right: 9rem; }
+    margin-right: 2.5rem;
+    font-family: sans-serif;
+    font-size: 14.5px;
+    font-weight: normal; }
+    .header .right a {
+      color: #00ff39; }
+    .header .right a:hover {
+      color: white; }
 
-ul {
+.recharge {
+  color: white;
+  background: #0c1218;
+  height: 36px;
+  border-radius: 10px; }
+
+.recharge:hover {
+  cursor: pointer;
+  color: #00ff39; }
+
+.signout {
+  width: 50px;
+  height: 30px; }
+
+div.nav {
   margin-top: 58.5px;
   height: 100%;
   width: 230px;
   position: fixed;
   top: 0;
   left: 0;
-  background: #27282a;
-  overflow-x: hidden;
-  padding-top: 20px;
+  background: #031120;
+  overflow-x: hidden; }
+
+ul {
+  padding-top: 35px;
   list-style: none; }
   ul li a {
+    font-family: sans-serif;
     text-decoration: none;
     color: white;
-    padding: 8px 8px 8px 30px;
-    color: #818181;
+    padding: 15px 8px 15px 30px;
     display: block; }
   ul li a:hover {
-    color: #f1f1f1; }
+    background: #293846; }
+  ul li a:focus {
+    color: #1ab394;
+    border: none; }
 
 .main {
   width: 400px;
@@ -47,48 +84,169 @@ ul {
   bottom: 60px;
   left: 250px; }
   .main .content {
-    margin-top: 4rem;
-    margin-left: 5rem; }
+    margin-top: 2rem;
+    margin-left: 5.5rem; }
 
 .page-header {
-  font-size: 30px;
-  margin-bottom: 20px;
-  margin-left: 0px; }
+  font-size: 33px;
+  font-family: "Josefin Sans", "sans serif";
+  font-weight: bold;
+  margin-top: 48px;
+  margin-left: 43px;
+  color: #0c1218; }
 
-input:not(.submit), select {
-  width: 300px;
-  height: 25px;
-  border: 1px solid gray; }
+label {
+  font-family: sans-serif; }
+
+input {
+  width: 257px; }
+
+select, .recharge {
+  width: 270px; }
+
+input:not(.recharge), select {
+  height: 29px;
+  font-size: 15px;
+  border: 1px solid gray;
+  padding-left: 10px; }
+
+input:not(.recharge):focus, select:focus {
+  border: 1px solid #00ff39; }
 
 form {
   line-height: 2.2; }
 
+.overlay:before {
+  content: "";
+  display: block;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10; }
+
+.overlay {
+  position: absolute;
+  top: 8px;
+  left: 190px;
+  width: 119%;
+  height: 547px;
+  z-index: 10;
+  display: none;
+  background-color: #061635;
+  text-align: center;
+  border-radius: 16px;
+  color: white; }
+  .overlay h1 {
+    font-family: "Josefin Sans", "sans serif"; }
+
+.overlay:not(h1) {
+  font-family: sans-serif; }
+
+#request {
+  text-align: initial;
+  margin-left: 115px; }
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #5db141;
+  border-top: 3px solid #f3f3f3;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: spin 1s infinite linear; }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+#foot_buttons {
+  margin-top: 69px; }
+
+#request {
+  margin-top: 18px; }
+
+#confirm .span {
+  background: #39a815;
+  padding: 14px 0px;
+  cursor: pointer; }
+
+#continue, #edit {
+  display: inline-block;
+  width: 49.7%;
+  cursor: pointer;
+  color: #031120; }
+
+#continue {
+  border-right: 1px solid white;
+  border-bottom-left-radius: 16px; }
+
+#edit {
+  border-left: 1px solid white;
+  border-bottom-right-radius: 16px; }
+
+#success h1 {
+  font-size: 32px; }
+
+img {
+  width: 119px; }
+
+#ok_btn, #retry_btn {
+  border: 1px solid #54c50d;
+  background: #54c50d;
+  width: 100px;
+  border-radius: 2px;
+  margin: 0px auto;
+  padding: 5px;
+  color: #031120;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block; }
+
+#ok_btn:hover, #continue:hover, #edit:hover, #retry_btn:hover {
+  color: white; }
+
 @media (max-width: 768px) {
-  ul {
-    width: 175px; }
-    ul a {
-      margin-left: 20px;
-      font-size: 13px;
-      margin-left: 0;
-      padding: 8px 8px 8px 8px; }
+  div.nav {
+    width: 200px; }
+
+  ul a {
+    margin-left: 20px;
+    font-size: 14px;
+    padding: 8px 8px 8px 6px;
+    margin-left: 0; }
+
+  .header.left {
+    font-size: 80px; }
 
   page-header {
-    font-size: 20px; }
+    font-size: 20px;
+    margin-left: 0px; }
 
   .main {
-    left: 210px;
-    right: 20px; }
+    left: 260px; }
     .main .content {
       margin-top: 2rem;
-      margin-left: 1.5rem; } }
+      margin-left: 2.5rem; } }
 @media(max-width: 595px) {
-  ul {
+  div.nav {
     padding: 0px;
     width: 100%;
     height: 45px; }
-    ul li {
+    div.nav ul li {
       display: inline-block;
       padding: 8px 0px 8px 0px; }
+    div.nav a {
+      color: red; }
 
   div.main {
     width: 100%;
@@ -96,8 +254,6 @@ form {
     margin-left: -165px; }
 
   header.right {
-    margin-right: 5rem; } }
-#history:before {
-  content: url("../images/history-clock-button.resized.png"); }
+    margin-right: 0; } }
 
 /*# sourceMappingURL=main.css.map */

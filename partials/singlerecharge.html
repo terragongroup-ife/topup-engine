@@ -1,19 +1,66 @@
+<!--SINGLE RECHARGE PARTIAL PAGE-->
 <div class="main">
-    <p class="page-header">Single Recharge</p>
+    <p class="page-header"> Single Recharge</p>
     <div class="content">
-    <form method="POST">
+
+    <!--single recharge request form-->
+    <form method="POST" class="single-recharge-form">
         <label>Phone Number</label><br/>
-        <input type="text" name="msisdn"><br/>
+        <input id="code" style="width:43px; color:#867272; border-right: none" value="+234"><input type="text" name="mobile" id="number" maxlength="10" minlength="10" style="width:203px" required><br/>
+        <p></p>
         <label>Amount</label><br/>
-        <input type="number" name="amount"><br/>
+        <input type="number" name="amount" id="amount" min="0" placeholder="Enter amount in kobo" required><br/>
+        <p></p>
         <label>Choose Mobile Operator</label><br/>
-        <select>
+        <select name="operator" id="operator" required>
+            <option value="" selected disabled hidden>Operators</option>
             <option value="mtn">MTN</option>
             <option value="glo">Glo</option>
             <option value="airtel">Airtel</option>
-            <option value="etisalat">Etisalat</option>
+            <option value="9mobile">9mobile</option>
         </select><br/>
-        <input class="submit" type="submit" value="Recharge">
+        <p><input class="recharge submit-btn" type="submit" value="Recharge"></p>
     </form>
+    </div>
+
+    <!--confirm transaction overlay-->
+    <div class="overlay" id="confirm">
+        <br>
+        <h1>Confirm Top-Up</h1><br/>
+        <img src="../images/icon.png"/><br/><br/><br/>
+        <div id="request">
+        <span>Phone Number:</span>&nbsp&nbsp<span id="number_input"></span><br/><br/><br/>
+        <span>Amount:</span>&nbsp&nbsp&#8358<span id="amount_input"></span><br/><br/><br/>
+        <span>Operator:</span>&nbsp&nbsp<span id="operator_input"></span>
+        </div>
+        <div id="foot_buttons">
+        <span id="continue" class="span">Continue</span><!--
+        --><span id="edit" class="span">Edit</span>
+        </div>
+    </div>
+
+    <!--transaction loading overlay-->
+    <div class="overlay" id="loader">
+        <div class="spinner"></div> 
+    </div>
+
+    <!--transaction successful overlay-->
+    <div class="overlay" id="success">
+        <br/><br/>
+        <h1>Transaction Successful</h1><br/>
+        <img src="../images/success.png"/><br/><br/>
+        <p><span>Approved Amount:</span></p>
+        <p><span>Transaction Ref:</span></p>
+        <p><span>Balance:</span></p><br/>
+        <p id="ok_btn">OK</p>
+    </div>
+
+    <!--transaction error overlay-->
+    <div class="overlay" id="error">
+        <br/><br/>
+        <h1>Transaction Failed</h1>
+        <p id="retry_btn">RETRY</p>
+    </div>
 </div>
-</div>
+
+<script src="../js/script.js"></script>

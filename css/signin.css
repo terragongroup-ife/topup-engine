@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,700,700i");
+body {
+    background: url("../images/background.jpeg") 
+}
+h1{
+    text-align: center;
+    color: white;
+    margin-top: 190px;
+    font-family: 'Josefin Sans', 'sans serif';
+    font-size: 38px;
+}
+
+.button {
+    width: 100%;
+    padding-top: 25px
+  }
+  
+.button > div{
+    margin: 0 auto;
+  }

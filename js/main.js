@@ -11,4 +11,8 @@ app.config(['$routeProvider', function ($routeProvider) {
       .when("/bulkrecharge", {templateUrl: "partials/bulkrecharge.html", controller: "PageCtrl"})
       .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
   }]);
+
+
+    
+
   
