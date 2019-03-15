@@ -1,156 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <meta name="description" content="top up engine">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<body>
-    <!--header-->
-    <div class="header">
-        <span><img src="./images/terragon.png" alt="logo"></span><h2 class="left">TOP-UP ENGINE</h2>
-        <h4 class="right">
-        <span class="name"></span>&nbsp&nbsp&nbsp&nbsp<span class="signout"><a href="/" onclick="signOut();">Sign out</a></span>
-        </h4>
+    <title>Sign In</title>
+    <meta name="google-signin-client_id" content="305054806605-9hobrv4481loveedddnpr1a2j4mk1l5s.apps.googleusercontent.com">
+    <link rel="stylesheet" href="css/signin.css">
+    <body>
+    <div class="center">
+    <img src="./images/terragon.png"/>
+    <h1>TOP-UP ENGINE</h1>
+    <div id="my-signin2" class="button"></div>
     </div>
-    <div style="clear: both;"></div> 
-
-    <!--navigation bar-->
-    <div class="navbar">
-        <ul>
-          <li><a href="#history" onclick="showHistory()"><i class="fa fa-fw fa-history"></i> &nbspHistory</a>
-          </li>
-          <li><a href="#singlerecharge" onclick="showSingleRecharge()"><i class="fa fa-fw fa-dashboard"></i> &nbspSingle Recharge</a>
-          </li>
-          <li><a href="#bulkrecharge" onclick="showBulkRecharge()"><i class="fa fa-fw fa-send"></i> &nbspBulk Recharge</a>
-          </li>
-        </ul>
-    </div>
-
-    <!--history page-->
-    <div id="history-page" class="main">
-        <p class="page-header">History</p>
-        <input type="text" class="filter-history" placeholder="Filter" style="margin-left:89px; height:40px; width:786px">
-        <div class="content">
-            <div id="history-button">
-            <button id="single-r-history-btn" onclick="showSingleHistory()">Single Recharge</button>
-            <button id="bulk-r-history-btn" onclick="showBulkHistory()">Bulk Recharge</button>
-            </div>
-
-            <div id="single-recharge-history">
-            <table>
-              <h2>Thur, 21st of January, 2019</h2>
-              <tr>
-                <td>23:11</td>
-                <td>08100452087</td>
-                <td>1000</td>
-                <td>MTN</td>
-              </tr>
-              <tr>
-                <td>05:36</td>
-                <td>08100452087</td>
-                <td>1000</td>
-                <td>MTN</td>
-              </tr>
-            </table>
-            </div>
-
-            <div id="bulk-recharge-history">
-            <table>
-              <h2>Fri, 21st of January, 2019</h2>
-              <tr>
-                <td>09:27</td>
-                <td>08100452087</td>
-                <td>1000</td>
-                <td>MTN</td>
-              </tr>
-              <tr>
-                <td>18:34</td>
-                <td>08034547789</td>
-                <td>1000</td>
-                <td>MTN</td>
-                </tr>
-            </table>
-            </div>
-        </div>
-    </div>
-
-    <!--single-recharge page-->
-    <div id="single-recharge-page" class="main">
-        <p class="page-header"> Single Recharge</p>
-        <div class="content">
-          <form method="POST" class="single-recharge-form">
-          <label>Phone Number</label><br/>
-          <input id="code" style="width:43px; color:#867272; border-right: none" value="+234"><input type="text" name="mobile" id="number" maxlength="10" minlength="10" style="width:203px" required><br/>
-          <p></p>
-          <label>Amount</label><br/>
-          <input type="number" name="amount" id="amount" min="0" placeholder="Enter amount in kobo" required><br/>
-          <p></p>
-          <label>Choose Mobile Operator</label><br/>
-          <select name="operator" id="operator" required>
-          <option value="" selected disabled hidden>Operators</option>
-          <option value="mtn">MTN</option>
-          <option value="glo">Glo</option>
-          <option value="airtel">Airtel</option>
-          <option value="9mobile">9mobile</option>
-          </select><br/>
-          <p><input class="recharge submit-btn" type="submit" value="Recharge"></p>
-          </form>
-        </div>
-    </div>
-
-
-    <!--bulk-recharge page-->
-    <div id="bulk-recharge-page" class="main">
-        <p class="page-header">Bulk Recharge</p>
-        <div class="content">
-          <form method="POST" class="bulk-recharge-form" enctype="multipart/form-data">
-          <label>Upload File</label><br />
-          <input type="file" name="bulk" required><br/>
-          <p><input class="recharge" id="r-submit-btn" type="submit" value="Recharge"></p>
-          </form>
-        </div>
-    </div>
-
-    <!--confirm transaction overlay-->
-    <div class="overlay" id="confirm-overlay">
-        <br>
-        <h1>Confirm Top-Up</h1><br/>
-        <img src="./images/icon.png"/><br/><br/><br/>
-        <div id="request">
-        <span>Phone Number:</span>&nbsp&nbsp<span id="number_input"></span><br/><br/><br/>
-        <span>Amount:</span>&nbsp&nbsp&#8358<span id="amount_input"></span><br/><br/><br/>
-        <span>Operator:</span>&nbsp&nbsp<span id="operator_input"></span>
-        </div>
-        <div id="foot_buttons">
-        <span id="continue" class="span">Continue</span><!--
-        --><span id="edit" class="span">Edit</span>
-        </div>
-    </div>
-    
-    <!--transaction loading overlay-->
-    <div class="overlay" id="loader">
-        <div class="spinner"></div> 
-    </div>
-    
-    <!--transaction successful overlay-->
-    <div class="overlay" id="success-overlay">
-        <br/><br/>
-        <h1>Transaction Successful</h1><br/>
-        <img src="./images/success.png"/><br/><br/>
-        <p><span>Approved Amount:</span></p>
-        <p><span>Transaction Ref:</span></p>
-        <p><span>Balance:</span></p><br/>
-        <p id="ok_btn">OK</p>
-    </div>
-    
-    <!--transaction error overlay-->
-    <div class="overlay" id="error-overlay">
-        <br/><br/>
-        <h1>Transaction Failed</h1>
-        <p id="retry_btn">RETRY</p>
-        </div>
-    </div>
-    <script src="./js/script.js"></script>
+    <script src="./js/signin.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
 </html>

@@ -17,6 +17,12 @@ a
     background: #0c1218
     color: white
     height: 59px
+    position: fixed
+    width: 100%
+    z-index: 10
+    justify-content: space-between
+    display: flex
+    align-items: center
     .left
         font-family: $header-font
         font-weight: bold
@@ -45,11 +51,14 @@ div.navbar
     margin-top: 58.5px
     height: 100%
     width: 230px
+    z-index: 1000
     position: fixed
     top: 0
     left: 0
     background: #031120
-    overflow-x: hidden
+    transition: all 0.3s
+div.navbar.active
+    margin-left: -230px
 ul
     padding-top: 35px
     list-style: none
@@ -100,19 +109,19 @@ input
 
 select, .recharge  
     width: 270px
-
-input:not(.recharge), select
-    height: 29px
-    font-size: 15px
-    border: 1px solid gray
-    padding-left: 10px
-input:not(.recharge):focus, select:focus
-    border: 1px solid #00ff39
 .recharge
     color: white
     background: #0c1218
     height: 36px
-    border-radius: 10px
+input:not(.recharge), input:not(.filter-history), select
+    height: 29px
+input:not(.filter-history), select
+    font-size: 15px
+    border: 1px solid gray
+    padding-left: 10px
+    border-radius: 4px
+input:not(.recharge):focus, select:focus
+    border: 1px solid #00ff39
 .recharge:hover
     cursor: pointer
     color: #00ff39
@@ -207,24 +216,36 @@ img
     color: white 
 
 /*history-page-design*/
-#single-r-history-btn, #bulk-r-history-btn
-    border: 0
-    padding: 0
-    background: 0
-    margin: 16px
-    margin-left: 0
-    font-size: 17px
-#bulk-recharge-history
-    display: none
+#s-table
+    padding-bottom: 58px
+    border-collapse: collapse
 table
     width: 800px
-    border-collapse: collapse
-#single-recharge-history, #bulk-recharge-history
+    border: 1px solid #dfe1e5
+    font-family: sans-serif
+    font-size: 14px
+    -moz-font-size: 16px
+.filter-history
+    border: 1px solid gray
+    margin-bottom: 16px
+    margin-top: 10px
+    padding-left: 15px
+#single-recharge-history
     h2    
         width: 500px
+        color: #0c1320
 td
-    border-bottom: 1px solid gray
-    padding: 11px
+    border-bottom: 1px solid green
+    padding: 9px
+    text-align: center
+td.time
+    width: 20%
+td.msisdn, td.title
+    width: 40%
+td.amount
+    width: 20%
+td.operator
+    width: 20%
 
 /*responsiveness*/
 @media (max-width: 768px) 

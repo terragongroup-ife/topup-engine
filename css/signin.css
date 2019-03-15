@@ -1,20 +1,34 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,700,700i");
 body {
-    background: url("../images/background.jpeg") 
+  /* background: url('../images/background.jpeg'); */
+  /* background-position: center; */
+  background-image: linear-gradient(to right, #6686c1, #0c1320);
 }
 h1{
     text-align: center;
-    color: white;
-    margin-top: 190px;
+    color: #0c1320;
     font-family: 'Josefin Sans', 'sans serif';
-    font-size: 38px;
+    font-size: 25px;
 }
 
 .button {
     width: 100%;
-    padding-top: 25px
+    padding-top: 42px
   }
   
 .button > div{
     margin: 0 auto;
   }
+
+img {
+    width: 80px;
+}
+.center {
+  height: 50%;
+  padding-top: 50px;
+  margin: 160px auto;
+  width: 22rem;
+  text-align: center;
+  background: white;
+  padding-bottom: 89px;
+}
