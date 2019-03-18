@@ -104,22 +104,46 @@ retry_btn.onclick = function() {
 
 function GetInputs() {
     document.getElementById("number_input").innerHTML = `0${document.getElementById("number").value}`;
-    document.getElementById("amount_input").innerHTML = `${document.getElementById("amount").value}`;
+    document.getElementById("amount_input").innerHTML = `${document.getElementById("amount").value}`/100;
     document.getElementById("operator_input").innerHTML = (document.getElementById("operator").value).toUpperCase();
 }
 
+
+function Recharge() {
+    msisdn = '0' + $("#number").val();
+    amount = $("#amount").val();
+    operator = $("#operator").val();
+    console.log(msisdn, amount, operator);
+
+    const url = `http://ddfcfe20.ngrok.io/?mobile=${msisdn}&amount=${amount}&operator=${operator}&genuine=true&email=oadetimehin@terragonltd.com`;
+    fetch(url)
+        .then(res => {
+            if(res.status == true){
+                success_overlay.style.display = "block";
+            }
+            else {
+                $("#message").val(res.ResponseDescription);
+                error_overlay.style.display = "block";
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
 function SingleRechargeSubmit() {
+    // let status = false;
     confirm_overlay.style.display = "block";
-    var status = "true";
     continue_btn.onclick = function() {
             // $("#loader").show();
         confirm_overlay.style.display = "none";
-        if(status == "true"){
-            success_overlay.style.display = "block";
-        }
-        else {
-            error_overlay.style.display = "block";
-        }
+        // if(status == true){
+        //     success_overlay.style.display = "block";
+        // }
+        // else {
+        //     error_overlay.style.display = "block";
+        // }
+          Recharge();
     }
     edit_btn.onclick = function() {
         confirm_overlay.style.display = "none";

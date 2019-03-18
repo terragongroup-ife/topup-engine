@@ -52,11 +52,10 @@ div.navbar {
   margin-top: 58.5px;
   height: 100%;
   width: 230px;
-  z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;
-  background: #031120;
+  background: #0c1320;
   transition: all 0.3s; }
 
 div.navbar.active {
@@ -226,6 +225,9 @@ input:not(.recharge):focus, select:focus {
 img {
   width: 119px; }
 
+p#retry_btn {
+  margin-top: 102px; }
+
 #ok_btn, #retry_btn {
   border: 1px solid #54c50d;
   background: #54c50d;
@@ -303,7 +305,10 @@ td.operator {
     left: 260px; }
     .main .content {
       margin-top: 2rem;
-      margin-left: 2.5rem; } }
+      margin-left: 2.5rem; }
+
+  table {
+    width: 500px; } }
 @media(max-width: 595px) {
   div.nav {
     padding: 0px;
