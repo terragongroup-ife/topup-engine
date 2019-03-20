@@ -1,14 +1,8 @@
 {
-  "name": "dashboard-angular",
+  "name": "topup-engine",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "express": "^4.16.4",
-    "fs": "0.0.1-security",
-    "live-server": "^1.2.1"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,10 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/damlois/topup-engine.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/damlois/topup-engine/issues"
   },
-  "homepage": "https://github.com/damlois/topup-engine#readme"
+  "homepage": "https://github.com/damlois/topup-engine#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "browserify": "^16.2.3",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.19",
+    "requirejs": "^2.3.6"
+  }
 }
