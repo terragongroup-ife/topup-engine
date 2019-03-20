@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="./js/config.js"></script>
 <body>
     <!--header-->
     <div class="header" onclick="onSignIn()">
@@ -46,7 +47,7 @@
     <div id="single-recharge-page" class="main">
         <p class="page-header"> Single Recharge</p>
         <div class="content">
-          <form action="http://localhost:8080/recharge" method="POST" class="single-recharge-form">
+          <form action="/recharge" method="POST" class="single-recharge-form">
           <label>Phone Number</label><br/>
           <input id="code" style="width:43px; color:#867272; border-right: none; border-top-right-radius: 0; border-bottom-right-radius: 0" value="+234"><!--
           --><input type="text" name="mobile" id="number" maxlength="10" minlength="10" style="width:203px; border-top-left-radius: 0; border-bottom-left-radius: 0" required><br/>

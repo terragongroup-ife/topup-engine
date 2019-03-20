@@ -1,4 +1,5 @@
 //for history, single-recharge, bulk-recharge pages
+const config = require('./config');
 var history_page = document.getElementById("history-page"); 
 var single_recharge_page = document.getElementById("single-recharge-page"); 
 var bulk_recharge_page = document.getElementById("bulk-recharge-page"); 
@@ -30,7 +31,7 @@ function showHistory() {
     single_recharge_page.style.display = "none";
     bulk_recharge_page.style.display = "none";
     if(isHistoryClicked === false) {
-    fetch('http://localhost:8080/history', {
+    fetch('localhost:8080/history', {
         method: 'GET'
     })
     .then(response => response.json())
@@ -119,7 +120,7 @@ function SingleRechargeSubmit() {
     confirm_overlay.style.display = "block";
     continue_btn.onclick = function() {
         confirm_overlay.style.display = "none";
-    fetch('http://localhost:8080/recharge', {
+    fetch('localhost:8080/recharge', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

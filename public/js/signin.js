@@ -1,4 +1,5 @@
-        function onSignIn(googleUser) {
+//const config = require('./config');
+function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
@@ -8,7 +9,7 @@
         console.log("Image URL: " + profile.getImageUrl());
         console.log("Email: " + profile.getEmail());
 
-        window.location.href = "http://localhost:8080/recharge.html"
+        window.location.href = "localhost:8080/recharge.html"
         };
 
 

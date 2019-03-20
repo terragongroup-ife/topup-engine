@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const FileHelper = require('./helpers/file.helper');
 const path = require('path');
+const config = require('./public/js/config');
 const router = express.Router();
 const port = process.env.port || 8080;
 
@@ -24,7 +25,7 @@ router.post('/recharge', (req,res) =>{
     const day = moment().format("dddd, MMMM Do YYYY");
     const time = moment().format("HH:mm");
     const type = "single";
-    const url = 'http://cc73e23a.ngrok.io'
+    const url = "localhost:8080"
     var options = {
         uri: url,
         qs: {
