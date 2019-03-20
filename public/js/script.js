@@ -142,7 +142,7 @@ function SingleRechargeSubmit() {
         }
         else {
             error_overlay.style.display = "block";
-            document.getElementById("message").innerHTML = resp.data.message;
+            document.getElementById("message").innerHTML = resp.data.ResponseDescription;
         }
     })
     .catch((err) => {
